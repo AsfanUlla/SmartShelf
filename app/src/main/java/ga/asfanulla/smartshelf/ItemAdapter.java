@@ -48,12 +48,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final HashMap<String, String> map = itemList.get(position);
-        String wt = map.get("weight");
-        if (wt.toLowerCase().startsWith("+") || wt.toLowerCase().startsWith("-")) {
-            holder.weight.setText(wt.substring(1));
-        } else {
-            holder.weight.setText(wt);
-        }
+        holder.weight.setText(map.get("weight"));
         holder.timer.setText(map.get("stamp"));
     }
 
