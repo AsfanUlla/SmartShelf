@@ -218,24 +218,15 @@ public class MainActivity extends AppCompatActivity {
     private void calculate(double[] x, double[] y, String fst){
         LinearRegression linearRegression = new LinearRegression(x, y);
         String field = String.valueOf(linearRegression);
-        String lf = "";
         double xi = Double.parseDouble(fst);
         double li = Double.parseDouble(field);
         Log.d("si/", String.valueOf(xi));
 
-        if (field.toLowerCase().startsWith("+") || field.toLowerCase().startsWith("-")) {
-            lf = field.substring(1);
-        } else if(Double.compare(li,xi) == 0){
-            lf = "To infinity and beyond";
-        } else {
-            lf = field;
-        }
-
-//        long days = TimeUnit.MILLISECONDS.toDays(Long.parseLong(lf));
+//        long days = TimeUnit.MILLISECONDS.toDays(Long.parseLong(field));
   //      Log.d("days/", String.valueOf(days));
 
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("The Future of Item-X").setMessage(lf)
+        builder.setTitle("The Future of Item-X").setMessage(field)
                 .setCancelable(false)
                 .setPositiveButton("Close", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
